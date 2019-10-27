@@ -1,0 +1,42 @@
+
+<p></p>
+<ion-content>
+    <ion-card class="welcome-card">
+      <ion-img src="/assets/atis.png"></ion-img>
+      <ion-card-header>
+        <ion-card-subtitle></ion-card-subtitle>
+        <ion-card-title>Atis Iberica Derichebourg</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        
+      </ion-card-content>
+    </ion-card>
+    <ion-list lines="none">
+    
+      <ion-item routerLink="/tab3">
+        <ion-icon slot="start" color="medium" name="book"></ion-icon>
+        <ion-label>Instrucciones de Uso</ion-label>
+      </ion-item>
+      <ion-item onclick="window.open('http://atis.planett.net/module/GED_plannet/GTP_AS_action_borne_api.php', '_blank', 'location=no');">
+        <!--href="http://atis.planett.net/module/GED_plannet/GTP_AS_action_borne_api.php"-->
+        <ion-icon slot="start" color="medium" name="globe"></ion-icon>
+        <ion-label>Acceso a Planet</ion-label>
+      </ion-item>
+      <ion-item href="https://redmine.derichebourg-atis.com/login?back_url=https%3A%2F%2Fredmine.derichebourg-atis.com%2F">
+        <ion-icon slot="start" color="medium" name="airplane"></ion-icon>
+        <ion-label>Acceso a Redmine</ion-label>
+      </ion-item>
+      <ion-item routerLink="/tabs/tab2">
+        <ion-icon slot="start" color="medium" name="person"></ion-icon>
+        <ion-label>Contactos</ion-label>
+      </ion-item>
+      <p></p>
+      <!--
+      <ion-item>
+        <ion-label>Modo Oscuro</ion-label>
+       <ion-toggle color="dark" slot="start" value="oscuro"></ion-toggle>
+      </ion-item>
+    --> 
+    </ion-list>
+   
+</ion-content>

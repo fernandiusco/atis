@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Nuevo Contacto</ion-title>
+    <ion-buttons slot="start">
+        <ion-back-button default-href="tab2"></ion-back-button>
+      </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+        <ion-label position="floating" >Nombre:</ion-label>
+        <ion-input [(ngModel)]="nombre"></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label position="floating" >Apellido:</ion-label>
+          <ion-input [(ngModel)]="apellido"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label position="floating">Telefono:</ion-label>
+            <ion-input type="number" [(ngModel)]="telefono"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Telefono Corto:</ion-label>
+            <ion-input type="number" [(ngModel)]="telefonocorto"></ion-input>
+          </ion-item>
+          <ion-item>
+              <ion-label position="floating">Correo:</ion-label>
+              <ion-input [(ngModel)]="correo"></ion-input>
+              <ion-item>
+                  <ion-label>Lugar de Trabajo:</ion-label>
+                  <ion-select (ionChange)='Cambiarfoto($event.target.value)' [(ngModel)]="lugar" id="selector" placeholder="Puesto Habitual">
+                    <ion-select-option value="Getafe">Getafe</ion-select-option>
+                    <ion-select-option value="Illescas">Illescas</ion-select-option>
+                    <ion-select-option value="Sevilla">Sevilla</ion-select-option>
+                    <ion-select-option value="Toulouse">Toulouse</ion-select-option>
+                    <ion-select-option value="Hamburgo">Hamburgo</ion-select-option>
+                  </ion-select>
+                  
+                </ion-item>
+           </ion-item>
+           <ion-item>
+              
+            <img src={{foto}} alt="">
+              
+             </ion-item>
+           
+
+        </ion-list>
+
+
+       
+          <ion-row>
+            <ion-col text-center>
+              <ion-button (click)="CreateRecord()" [disabled]="!nombre || !apellido || !telefono || !correo">
+                <ion-icon size="small" slot="icon-only" name="add"></ion-icon>
+                &nbsp;Registrar Contacto
+              </ion-button>
+                         </ion-col>
+          </ion-row>
+        
+       
+</ion-content>

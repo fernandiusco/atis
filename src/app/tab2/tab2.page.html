@@ -1,0 +1,95 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Contactos Corporativos
+    </ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <p></p>
+    <ion-searchbar (ionInput)="getItems($event)" animated placeholder="Buscar Contacto"></ion-searchbar>
+    <!-- fab placed to the top end -->
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+      <ion-fab-button routerLink="/tab4">
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+    <!-- List of Text Items -->
+ 
+  <ion-card *ngFor="let item of contactos">
+    <span *ngIf="!item.isEdit; else elseBlock">
+      <ion-card-header>
+        <ion-card-title>{{item.nombre}} {{item.apellido}}</ion-card-title>
+        <ion-card-subtitle>{{item.telefono}} // {{item.telefonocorto}}</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+ 
+        <ion-button shape="round" color="primary" size="small" (click)="EditRecord(item)">
+          <ion-icon size="small" slot="icon-only" name="eye"></ion-icon>
+ <!--
+   <ion-button shape="round" color="danger" size="small" (click)="RemoveRecord(item.id)">
+          <ion-icon size="small" slot="icon-only" name="trash"></ion-icon>
+ 
+        </ion-button>
+ -->
+        </ion-button>
+        
+      </ion-card-content>
+    </span>
+    <ng-template #elseBlock>
+      <ion-card-header>
+        <ion-card-title>
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <ion-button fill="outline" color="medium" size="small" (click)="item.isEdit = false">
+                  Contraer
+                </ion-button>
+              </ion-col>
+              <ion-col>
+                <!-- 
+                  <ion-button fill="outline" color="success" size="small" (click)="UpdateRecord(item)">
+                  Actualizar
+                </ion-button>
+                --> 
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-item>
+          <ion-label><strong></strong></ion-label>
+          <ion-input type="text" [(ngModel)]="item.EditNombre"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label><strong></strong></ion-label>
+          <ion-input type="text" [(ngModel)]="item.EditApellido"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label><strong>Telefono:</strong></ion-label>
+          <ion-input type="text" [(ngModel)]="item.EditTelefono"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label><strong>Telefono Corto:</strong></ion-label>
+          <ion-input type="text" [(ngModel)]="item.EditTelefonocorto"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label><strong>Correo:</strong></ion-label>
+            <ion-input type="text" [(ngModel)]="item.EditCorreo"></ion-input>
+          </ion-item>
+          <ion-item>
+              <ion-label><strong>Lugar de Trabajo:</strong></ion-label>
+              <ion-input type="text" [(ngModel)]="item.EditLugar"></ion-input>
+            </ion-item>
+      </ion-card-content>
+    </ng-template>
+  </ion-card>
+
+
+
+</ion-content>
